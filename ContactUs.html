@@ -95,10 +95,57 @@ body{
         display: none;
     }
 }
+header{
+    background-color: wheat;
+    padding:11px ;
+}
+.home{
+    color: rgb(13, 17, 13);
+    font-size: xx-large;
+    text-decoration:none
+}
+.footer{
+    background: #303036;
+    color: #fff;
+    height: 100px;
+    position: relative;
+}
 
+.footer .footer-bottom{
+    background:rgba(102, 159, 106, 0.455);
+    color: white;
+    height: 50px;
+    width: 100% ;
+    text-align: center;
+    position: absolute;
+    bottom: 0px ;
+    left: 0px;
+    padding-top: 20px;
+}
+
+.social-link-list{
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+}
+
+.social-link-list .social-link{
+    color: rgb(166, 234, 21);
+    font-size: 25px;
+    transition: 0.2s ease;
+}
+
+.social-link-list .social-link:hover{
+    color: white ;
+}
     </style>
 </head>
 <body>
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="home">←Home</a>
+        </nav>
+    </header>
     <div class="contact-container">
         <form action="https://api.web3forms.com/submit" method="POST" class="contact-left">
             <div class="contact-left-title">
@@ -114,6 +161,17 @@ body{
         </form>
         <div class="contact-right">
             <img src="Farmers Market Vegetable Stand.jpg" alt="">
+        </div>
+    </div>
+    <div class="footer">
+        <div class="social-link-list">
+            <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+
+        <div class="footer-bottom" >
+            &copy; Organic.com 
         </div>
     </div>
   </body>
