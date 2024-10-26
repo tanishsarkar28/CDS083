@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <style>         
+        body{
+            background-image: url(signup\ background.jpg);
+            background-repeat: no-repeat;
+            background-size: cover; 
+            background-attachment: fixed;
+        }
+        #maindiv{
+            background-color: rgba(248, 219, 165, 0.184); 
+            /* this 0.658 is transparent value */
+            width: 40%;
+            border-radius: 15px;
+
+        }
+        h1{
+            text-align: center;
+        }
+        form{
+            padding: 40px;
+            text-align: left;
+            
+        }
+        label{
+            display: block;
+            margin-top: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+        }
+        input[type="text"],input[type="email"], input[type="password"],select{
+            width: 100%;
+            height: 40px;
+            margin: 2px;
+            border: none;
+            border-radius: 8px;
+        }
+        textarea{
+            width: 100%;
+        }
+        input[type="submit"], input[type="reset"]{
+            background-color: rgb(0, 255, 30);
+            border-radius: 40px;
+
+        }
+        
+        input[type="submit"]:hover{
+                background-color: rgba(196, 244, 3, 0.575);
+                transform: scale(1.05);
+                cursor: pointer;
+        }
+
+        input[type="reset"]:hover{
+                background-color: rgba(196, 244, 3, 0.575);
+                transform: scale(1.05);
+                cursor: pointer;
+        }        
+        .error{
+            color: red;
+            font-size: 18px;
+            font-weight: bold;
+
+        }
+        
+    </style>
+</head>
+<body>
+    <center><div id="maindiv">
+        <form onsubmit="return(sub())" name="myform">
+            <h1> Sign In!</h1>
+            
+            <label for="email">Email: </label>
+            <input type="email" id="email" placeholder="email@example.com">
+            <span class="error" id="emailerror"></span><br>
+
+            <label for="password">Password: </label>
+            <input type="password" id="password">
+            <span class="error" id="passworderror"></span><br>
+
+            <br>
+
+            <input type="submit" value="Sign in">&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="reset" value="RESET">
+            <br>
+            <h4>Don't have an account?  <a href="singup.html">Sign Up</a></h4>
+        </form>
+        
+    </div>
+    </center>
+
+
+
+
+
+
+    <script>
+        function sub(){
+            var isvalid = "true";
+            
+            if(document.getElementById('email').value==""){
+                document.getElementById('emailerror').innerText = "Can't be empty";
+                isvalid = false;
+            }
+            else{
+                document.getElementById('emailerror').innerText="";
+            }
+            if(document.getElementById('password').value==""){
+                document.getElementById('passworderror').innerText = "Can't be empty";
+                isvalid = false;
+            }
+            else{
+                document.getElementById('passworderror').innerText="";
+            }
+            
+            return isvalid;
+        }
+    </script>
+
+</body>
+</html>
