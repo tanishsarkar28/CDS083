@@ -81,7 +81,7 @@
                 <input type="password" id="password">
                 <span class="error" id="passworderror"></span><br>
 
-                <input type="submit" value="Sign in">
+                <input onclick="auth()" type="submit" value="Sign in">
                 <input type="reset" value="RESET">
                 <br>
                 <h4>Don't have an account? <a href="signup.html">Sign Up</a></h4>
@@ -111,38 +111,21 @@
             return isvalid;
         }
         
-    
-        async function sub() {
-            var isvalid = true;
+        function auth(){
+            var email=document.getElementById('email').value;
+            var password=document.getElementById('password').value;
 
-            if (isvalid) {
-                const credentials = {
-                    email: document.getElementById('email').value,
-                    password: document.getElementById('password').value,
-                };
 
-                try {
-                    const response = await fetch('http://localhost:3000/signin', { // Ensure the URL is correct
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(credentials),
-                    });
-
-                    const result = await response.json();
-                    if (result.success) {
-                        alert("Sign in successful!");
-                        // Redirect to a new page or dashboard
-                    } else {
-                        alert("Sign in failed: " + result.message);
-                    }
-                } catch (error) {
-                    alert("Error: " + error.message);
-                }
-            }
-            return false; // Prevent form submission if using async function
-        }
+if(email=='sarkartanish2807@gmail.com' && password==1122){
+    window.location.assign('index.html');
+    alert("login successfully");
+}
+else{
+    alert("alert information");
+    return;
+}            
+        } 
+       
     </script>
 </body>
 </html>
