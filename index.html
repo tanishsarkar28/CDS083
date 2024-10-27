@@ -78,7 +78,7 @@
             background-color: #ff5714;
         }
         
-        /* Responsive button styling */
+        
         #buttons {
             display: flex;
             gap: 20px;
@@ -247,6 +247,275 @@
                 flex-direction: column;
             }
         }
+        .buy-section {
+            padding: 50px 0;
+            background-color: #f2f2f2;
+        }
+
+        .buy-section h2 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #4CAF50;
+        }
+
+        .product-list {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 0 20px;
+        }
+
+        .product {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 300px;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-image {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .product h3 {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+
+        .product .price {
+            color: #ff4d4d;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .add-to-cart {
+            background-color: #1f1f1f;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .add-to-cart:hover {
+            background-color: #333;
+            transform: translateX(-50%) scale(1.05);
+        }
+        .buy-section {
+            padding: 50px 0;
+            background-color: #f2f2f2;
+        }
+
+        .buy-section h2 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #4CAF50;
+        }
+
+        .product-list {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 0 20px;
+        }
+
+        .product {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 300px;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-image {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .product h3 {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+
+        .product .price {
+            color: #ff4d4d; /* Keep the existing red color for the price */
+            font-weight: bold; /* Make the text bold */
+            font-size: 1.2em; /* Increase the font size */
+            background-color: rgba(255, 255, 255, 0.8); /* Add a semi-transparent background for better contrast */
+            padding: 5px; /* Add some padding for aesthetics */
+            border-radius: 5px; /* Round the corners */
+            display: inline-block; /* Make the background fit the text */
+        }
+
+        .add-to-cart {
+            background-color: #1f1f1f;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .add-to-cart:hover {
+            background-color: #333;
+            transform: translateX(-50%) scale(1.05);
+        }
+        #user-profile {
+            position: relative;
+        }
+
+        #user-photo {
+            width: 40px; /* Size of the user photo */
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .user-info {
+            display: none; /* Hidden by default */
+            position: absolute;
+            top: 50px; /* Position it below the photo */
+            left: -20px; /* Center alignment */
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 10; /* On top of other elements */
+        }
+
+        #user-profile:hover .user-info {
+            display: block; /* Show on hover */
+        }
+        #user-info {
+            position: relative;
+            display: inline-block;
+        }
+        #user-details {
+            position: absolute;
+            top: 50px; /* Adjust based on your layout */
+            left: -15px; /* Adjust based on your layout */
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+        #user-details p {
+            margin: 0;
+        }
+        /* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.5); 
+}
+
+.modal-content {
+    background-color: #ffffff;
+    margin: 10% auto; 
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 400px; /* Fixed width */
+}
+
+/* Close button */
+.close-button {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Cart items */
+.cart-items {
+    max-height: 300px; /* Max height for scrollable area */
+    overflow-y: auto; /* Scroll if too many items */
+    margin-bottom: 15px;
+}
+
+.cart-items p {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0; /* Divider between items */
+}
+
+.cart-items p:last-child {
+    border-bottom: none; /* Remove border from last item */
+}
+
+/* Total price */
+h3 {
+    font-weight: bold;
+}
+
+/* Checkout button */
+.checkout-button {
+    background-color: #28a745; /* Green background */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%; /* Full width */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.checkout-button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
     </style>
     
 </head>
@@ -257,22 +526,30 @@
         <nav>
             <ul>
                 <li><a target="_blank" href="signin.html">Sign In</a></li>
-                <li><a target="_blank" href="singup.html">Sign Up</a></li>
+                <li><a target="_blank" href="signup.html">Sign Up</a></li>
                 <li><a href="#">Home</a></li>
-                <li><a href="#shophere">Shop</a></li>
                 <li><a href="AboutUs.html">About</a></li>
                 <li><a href="ContactUs.html">Contact</a></li>
                 <li><a href="#" class="cart">Cart (0)</a></li>
+                <li>
+                    <div id="user-info">
+                        <img id="user-photo" src="" alt="User Photo" style="display: none; width: 40px; height: 40px; border-radius: 50%;">
+                        <div id="user-details" style="display: none;">
+                            <p id="username-text"></p>
+                        </div>
+                    </div>
+                </li>
                 <li><div id="google_translate_element"></div></li>
             </ul>
         </nav>
     </header>
+    
 
     <section class="hero">
         <div class="hero-content">
             <div id="buttons">
-                <a href="#for-farmers" id="sell-btn"><b>Sell</b></a>
-                <a href="#for-customers" id="shop-btn"><b>Shop</b></a>
+                <a href="#for-farmers" id="sell-btn"><b>Farmer</b></a>
+                <a href="#for-customers" id="shop-btn"><b>Customer</b></a>
             </div>
         </div>
     </section>
@@ -335,67 +612,78 @@
             <section id="shophere" class="featured-products">
                 <div class="product-list">
                     <div class="product" data-name="Potato" data-price="280">
-                        <img src="potato.jpeg" alt="Potato">
+                        <img src="potato.jpeg" alt="Potato" class="product-image">
                         <h3>Potato</h3>
-                        <p>₹280 per 10Kg</p><br><br><br>
-                        <button><i class="fas fa-cart-plus"></i> Add 10Kg</button>
+                        <p class="price">₹280 per 10Kg</p><br><br><br>
+                        <button class="add-to-cart"><i class="fas fa-cart-plus"></i> Add 10Kg</button>
                     </div>
-        
+    
                     <div class="product" data-name="Onion" data-price="600">
-                        <img src="Onion.jpeg" alt="Brinjal">
+                        <img src="Onion.jpeg" alt="Onion" class="product-image">
                         <h3>Onion</h3>
-                        <p>₹600 per 10Kg</p><br><br><br>
-                        <button><i class="fas fa-cart-plus"></i> Add 10Kg</button>
+                        <p class="price">₹600 per 10Kg</p>
+                        <button class="add-to-cart"><i class="fas fa-cart-plus"></i> Add 10Kg</button>
                     </div>
                     
                     <div class="product" data-name="Brinjal" data-price="400">
-                        <img src="brinjal.jpeg" alt="Brinjal">
+                        <img src="brinjal.jpeg" alt="Brinjal" class="product-image">
                         <h3>Brinjal</h3>
-                        <p>₹400 per 10Kg</p>
-                        <button><i class="fas fa-cart-plus"></i> Add 10Kg</button>
+                        <p class="price">₹400 per 10Kg</p>
+                        <button class="add-to-cart"><i class="fas fa-cart-plus"></i> Add 10Kg</button>
                     </div>
-        
+    
                     <div class="product" data-name="Lady Finger" data-price="320">
-                        <img src="Lady.png" alt="Lady Finger">
+                        <img src="Lady.png" alt="Lady Finger" class="product-image">
                         <h3>Lady Finger</h3>
-                        <p>₹320 per 10Kg</p>
-                        <button><i class="fas fa-cart-plus"></i> Add 10Kg</button>
+                        <p class="price">₹320 per 10Kg</p>
+                        <button class="add-to-cart"><i class="fas fa-cart-plus"></i> Add 10Kg</button>
                     </div>
-        
+    
                     <div class="product" data-name="Cauliflower" data-price="180">
-                        <img src="Cauliflower.jpeg" alt="Cauliflower">
+                        <img src="Cauliflower.jpeg" alt="Cauliflower" class="product-image">
                         <h3>Cauliflower</h3>
-                        <p>₹180 per 10Kg</p><br><br><br>
-                        <button><i class="fas fa-cart-plus"></i> Add 10Kg</button>
+                        <p class="price">₹180 per 10Kg</p>
+                        <button class="add-to-cart"><i class="fas fa-cart-plus"></i> Add 10Kg</button>
                     </div>
-        
+    
                     <div class="product" data-name="Apple" data-price="1600">
-                        <img src="apple.jpeg" alt="Apple">
+                        <img src="apple.jpeg" alt="Apple" class="product-image">
                         <h3>Apple</h3>
-                        <p>₹1600 per 10Kg</p><br><br><br>
-                        <button><i class="fas fa-cart-plus"></i> Add 10Kg</button>
+                        <p class="price">₹1600 per 10Kg</p><br><br><br>
+                        <button class="add-to-cart"><i class="fas fa-cart-plus"></i> Add 10Kg</button>
                     </div>
-        
+    
                     <div class="product" data-name="Banana" data-price="530">
-                        <img src="Banana.jpeg" alt="Banana">
+                        <img src="Banana.jpeg" alt="Banana" class="product-image">
                         <h3>Banana</h3>
-                        <p>₹530 per 10Kg</p><br><br><br>
-                        <button><i class="fas fa-cart-plus"></i> Add 10Kg</button>
+                        <p class="price">₹530 per 10Kg</p>
+                        <button class="add-to-cart"><i class="fas fa-cart-plus"></i> Add 10Kg</button>
                     </div>
-        
-                    <div class="product" data-name="watermellon" data-price="800">
-                        <img src="watermellon.jpeg" alt="watermellon">
-                        <h3>Watermellon</h3>
-                        <p>₹800 per 10Kg</p><br><br><br>
-                        <button><i class="fas fa-cart-plus"></i> Add 10Kg</button>
+    
+                    <div class="product" data-name="Watermelon" data-price="800">
+                        <img src="watermellon.jpeg" alt="Watermelon" class="product-image">
+                        <h3>Watermelon</h3>
+                        <p class="price">₹800 per 10Kg</p>
+                        <button class="add-to-cart"><i class="fas fa-cart-plus"></i> Add 10Kg</button>
                     </div>
                     
                 </div>
             </section>
-        
         </div>
     </section>
     
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Your Cart</h2>
+            <div id="cart-items" class="cart-items"></div>
+            <h3>Total: ₹<span id="total-price">0</span></h3>
+            <button id="checkout-btn" class="checkout-button">Checkout</button>
+        </div>
+    </div>
+
+
     
     
    
@@ -425,7 +713,7 @@
         productCard.innerHTML = `
             <img src="${imageUrl}" alt="${selectedProduct}" class="product-image" style="width:100%; border-radius:10px; margin-bottom:10px;">
             <h3>${selectedProduct}</h3>
-            <p>₹${price} per 10Kg</p><br><br><br>
+            <p>₹${price} per 10Kg</p>
             <button>Add to Cart</button>
         `;
 
@@ -448,8 +736,101 @@ document.getElementById('shop-btn').addEventListener('click', function (e) {
     document.getElementById('for-customers').style.display = 'block';
     document.getElementById('for-customers').scrollIntoView({ behavior: 'smooth' });
 });
+document.addEventListener('DOMContentLoaded', function() {
+        const userData = JSON.parse(localStorage.getItem('userData'));
+        
+        if (userData) {
+            const userPhoto = document.getElementById('user-photo');
+            const usernameText = document.getElementById('username-text');
+            const userDetails = document.getElementById('user-details');
 
+            userPhoto.src = userData.photo; // Set user photo
+            usernameText.textContent = userData.username; // Set username
+            userPhoto.style.display = 'block'; // Show photo
+
+            // Show details on hover
+            userPhoto.addEventListener('mouseover', function() {
+                userDetails.style.display = 'block';
+            });
+
+            userPhoto.addEventListener('mouseout', function() {
+                userDetails.style.display = 'none';
+            });
+        }
+    });
+
+    
+        let cart = [];
+        const cartModal = document.getElementById("cart-modal");
+        const cartItemsContainer = document.getElementById("cart-items");
+        const totalPriceDisplay = document.getElementById("total-price");
+        
+        // Open the cart modal
+        function openCart() {
+            cartModal.style.display = "block";
+            renderCart();
+        }
+    
+        // Close the cart modal
+        function closeCart() {
+            cartModal.style.display = "none";
+        }
+    
+        // Render cart items
+        function renderCart() {
+            cartItemsContainer.innerHTML = ""; // Clear previous items
+            let total = 0;
+    
+            cart.forEach(item => {
+                const cartItem = document.createElement("div");
+                cartItem.innerHTML = `
+                    <p>${item.name} - ₹${item.price} (Qty: ${item.quantity})</p>
+                `;
+                cartItemsContainer.appendChild(cartItem);
+                total += item.price * item.quantity; // Update total price
+            });
+    
+            totalPriceDisplay.innerText = total; // Display total price
+        }
+    
+        // Add product to cart
+        function addToCart(name, price) {
+            const existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity += 1; // Increase quantity if already in cart
+            } else {
+                cart.push({ name, price, quantity: 1 }); // Add new item
+            }
+            openCart(); // Open cart after adding item
+        }
+    
+        // Event listeners for add to cart buttons
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', () => {
+                const productElement = button.closest('.product');
+                const productName = productElement.getAttribute('data-name');
+                const productPrice = parseFloat(productElement.getAttribute('data-price'));
+                addToCart(productName, productPrice);
+            });
+        });
+    
+        // Close modal when clicking on the close button
+        document.querySelector('.close-button').addEventListener('click', closeCart);
+    
+        // Close modal when clicking outside of the modal
+        window.onclick = function(event) {
+            if (event.target === cartModal) {
+                closeCart();
+            }
+        };
+    
+        // Optionally, implement the checkout function
+        document.getElementById('checkout-btn').addEventListener('click', () => {
+            alert("Proceeding to checkout with total: ₹" + totalPriceDisplay.innerText);
+            // Add checkout logic here
+        });
     </script>
+    
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
