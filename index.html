@@ -530,7 +530,8 @@ h3 {
                 <li><a href="#">Home</a></li>
                 <li><a href="AboutUs.html">About</a></li>
                 <li><a href="ContactUs.html">Contact</a></li>
-                <li><a href="#" class="cart">Cart (0)</a></li>
+                <li><a href="#" class="cart" id="cart-link">Cart (0)</a></li>
+
                 <li>
                     <div id="user-info">
                         <img id="user-photo" src="" alt="User Photo" style="display: none; width: 40px; height: 40px; border-radius: 50%;">
@@ -760,75 +761,84 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     
-        let cart = [];
-        const cartModal = document.getElementById("cart-modal");
-        const cartItemsContainer = document.getElementById("cart-items");
-        const totalPriceDisplay = document.getElementById("total-price");
-        
-        // Open the cart modal
-        function openCart() {
-            cartModal.style.display = "block";
-            renderCart();
-        }
-    
-        // Close the cart modal
-        function closeCart() {
-            cartModal.style.display = "none";
-        }
-    
-        // Render cart items
-        function renderCart() {
-            cartItemsContainer.innerHTML = ""; // Clear previous items
-            let total = 0;
-    
-            cart.forEach(item => {
-                const cartItem = document.createElement("div");
-                cartItem.innerHTML = `
-                    <p>${item.name} - ₹${item.price} (Qty: ${item.quantity})</p>
-                `;
-                cartItemsContainer.appendChild(cartItem);
-                total += item.price * item.quantity; // Update total price
-            });
-    
-            totalPriceDisplay.innerText = total; // Display total price
-        }
-    
-        // Add product to cart
-        function addToCart(name, price) {
-            const existingItem = cart.find(item => item.name === name);
-            if (existingItem) {
-                existingItem.quantity += 1; // Increase quantity if already in cart
-            } else {
-                cart.push({ name, price, quantity: 1 }); // Add new item
-            }
-            openCart(); // Open cart after adding item
-        }
-    
-        // Event listeners for add to cart buttons
-        document.querySelectorAll('.add-to-cart').forEach(button => {
-            button.addEventListener('click', () => {
-                const productElement = button.closest('.product');
-                const productName = productElement.getAttribute('data-name');
-                const productPrice = parseFloat(productElement.getAttribute('data-price'));
-                addToCart(productName, productPrice);
-            });
-        });
-    
-        // Close modal when clicking on the close button
-        document.querySelector('.close-button').addEventListener('click', closeCart);
-    
-        // Close modal when clicking outside of the modal
-        window.onclick = function(event) {
-            if (event.target === cartModal) {
-                closeCart();
-            }
-        };
-    
-        // Optionally, implement the checkout function
-        document.getElementById('checkout-btn').addEventListener('click', () => {
-            alert("Proceeding to checkout with total: ₹" + totalPriceDisplay.innerText);
-            // Add checkout logic here
-        });
+    let cart = [];
+const cartModal = document.getElementById("cart-modal");
+const cartItemsContainer = document.getElementById("cart-items");
+const totalPriceDisplay = document.getElementById("total-price");
+const cartLink = document.getElementById("cart-link"); // Reference to the cart link
+
+// Function to update the cart count display
+function updateCartCount() {
+    const count = cart.length; // Get the number of items in the cart
+    cartLink.textContent = `Cart (${count})`; // Update the cart link text
+}
+
+// Open the cart modal
+function openCart() {
+    cartModal.style.display = "block";
+    renderCart();
+}
+
+// Close the cart modal
+function closeCart() {
+    cartModal.style.display = "none";
+}
+
+// Render cart items
+function renderCart() {
+    cartItemsContainer.innerHTML = ""; // Clear previous items
+    let total = 0;
+
+    cart.forEach(item => {
+        const cartItem = document.createElement("div");
+        cartItem.innerHTML = `
+            <p>${item.name} - ₹${item.price} (Qty: ${item.quantity})</p>
+        `;
+        cartItemsContainer.appendChild(cartItem);
+        total += item.price * item.quantity; // Update total price
+    });
+
+    totalPriceDisplay.innerText = total; // Display total price
+}
+
+// Add product to cart
+function addToCart(name, price) {
+    const existingItem = cart.find(item => item.name === name);
+    if (existingItem) {
+        existingItem.quantity += 1; // Increase quantity if already in cart
+    } else {
+        cart.push({ name, price, quantity: 1 }); // Add new item
+    }
+    updateCartCount(); // Update the cart count
+    openCart(); // Open cart after adding item
+}
+
+// Event listeners for add to cart buttons
+document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', () => {
+        const productElement = button.closest('.product');
+        const productName = productElement.getAttribute('data-name');
+        const productPrice = parseFloat(productElement.getAttribute('data-price'));
+        addToCart(productName, productPrice);
+    });
+});
+
+// Close modal when clicking on the close button
+document.querySelector('.close-button').addEventListener('click', closeCart);
+
+// Close modal when clicking outside of the modal
+window.onclick = function(event) {
+    if (event.target === cartModal) {
+        closeCart();
+    }
+};
+
+// Optionally, implement the checkout function
+document.getElementById('checkout-btn').addEventListener('click', () => {
+    alert("Proceeding to checkout with total: ₹" + totalPriceDisplay.innerText);
+    // Add checkout logic here
+});
+
     </script>
     
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
