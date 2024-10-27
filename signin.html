@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In</title>
-    <style>         
+    <style>
         body{
             background-image: url(signup\ background.jpg);
             background-repeat: no-repeat;
@@ -66,42 +66,33 @@
             font-weight: bold;
 
         }
-        
     </style>
 </head>
 <body>
-    <center><div id="maindiv">
-        <form onsubmit="return(sub())" name="myform">
-            <h1> Sign In!</h1>
-            
-            <label for="email">Email: </label>
-            <input type="email" id="email" placeholder="email@example.com">
-            <span class="error" id="emailerror"></span><br>
+    <center>
+        <div id="maindiv">
+            <form onsubmit="return sub()" name="myform">
+                <h1>Sign In!</h1>
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="email@example.com">
+                <span class="error" id="emailerror"></span><br>
 
-            <label for="password">Password: </label>
-            <input type="password" id="password">
-            <span class="error" id="passworderror"></span><br>
+                <label for="password">Password:</label>
+                <input type="password" id="password">
+                <span class="error" id="passworderror"></span><br>
 
-            <br>
-
-            <input type="submit" value="Sign in">&nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="reset" value="RESET">
-            <br>
-            <h4>Don't have an account?  <a href="singup.html">Sign Up</a></h4>
-        </form>
-        
-    </div>
+                <input type="submit" value="Sign in">
+                <input type="reset" value="RESET">
+                <br>
+                <h4>Don't have an account? <a href="signup.html">Sign Up</a></h4>
+            </form>
+        </div>
     </center>
 
-
-
-
-
-
     <script>
-        function sub(){
-            var isvalid = "true";
-            
+        async function sub() {
+            var isvalid = true;
+
             if(document.getElementById('email').value==""){
                 document.getElementById('emailerror').innerText = "Can't be empty";
                 isvalid = false;
@@ -119,7 +110,39 @@
             
             return isvalid;
         }
-    </script>
+        
+    
+        async function sub() {
+            var isvalid = true;
 
+            if (isvalid) {
+                const credentials = {
+                    email: document.getElementById('email').value,
+                    password: document.getElementById('password').value,
+                };
+
+                try {
+                    const response = await fetch('http://localhost:3000/signin', { // Ensure the URL is correct
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(credentials),
+                    });
+
+                    const result = await response.json();
+                    if (result.success) {
+                        alert("Sign in successful!");
+                        // Redirect to a new page or dashboard
+                    } else {
+                        alert("Sign in failed: " + result.message);
+                    }
+                } catch (error) {
+                    alert("Error: " + error.message);
+                }
+            }
+            return false; // Prevent form submission if using async function
+        }
+    </script>
 </body>
 </html>
