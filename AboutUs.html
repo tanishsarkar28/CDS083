@@ -217,7 +217,7 @@ header{
                 <img src="farmer.jpg">
             </div>
             <div class="about-content">
-                <h2>Organic is a platform that aims to bridge the gap between farmers and consumers, ensuring fresh, quality produce directly from the source to consumers' homes. It supports local communities, promotes sustainable practices, and makes farm-fresh goods accessible. The platform empowers farmers by providing a platform to showcase their products without middlemen, ensuring fair prices for their efforts. It also makes local, fresh, and healthy produce available to consumers, ensuring they know the origin and people behind it. By choosing Orgaic, consumers support farmers, take a stand for fresher produce, transparency, and a more equitable agricultural system. Join us on our journey towards a healthier, more connected, and sustainable future.</h2>
+                <h2>Organic is a platform that aims to bridge the gap between farmers and consumers, ensuring fresh, quality produce directly from the source to consumers' homes. It supports local communities, promotes sustainable practices, and makes farm-fresh goods accessible. The platform empowers farmers by providing a platform to showcase their products without middlemen, ensuring fair prices for their efforts. It also makes local, fresh, and healthy produce available to consumers, ensuring they know the origin and people behind it. By choosing Organic, consumers support farmers, take a stand for fresher produce, transparency, and a more equitable agricultural system. Join us on our journey towards a healthier, more connected, and sustainable future.</h2>
             </div>
         </section>
     </div><br>
@@ -240,6 +240,56 @@ header{
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
         }
+        // Array to hold available voices
+    let availableVoices = [];
+
+// Load available voices
+function loadVoices() {
+    availableVoices = speechSynthesis.getVoices();
+}
+
+// Re-load voices when they are loaded (needed for some browsers)
+speechSynthesis.onvoiceschanged = loadVoices;
+
+// Function to find the best voice for a given language
+function getVoiceForLanguage(lang) {
+    return availableVoices.find(voice => voice.lang.startsWith(lang)) || null;
+}
+
+// Function to handle speech synthesis on hover
+function speakText(event) {
+    const text = event.target.innerText.trim();
+    if (text) { // Check if there's text to speak
+        const lang = event.target.getAttribute('lang') || 'en';
+
+        if ('speechSynthesis' in window) {
+            const utterance = new SpeechSynthesisUtterance(text);
+
+            // Set the language and find the appropriate voice
+            utterance.lang = lang;
+            const voice = getVoiceForLanguage(lang);
+            if (voice) {
+                utterance.voice = voice;
+            } else {
+                console.warn(`No voice found for language: ${lang}, using default.`);
+            }
+
+            // Stop any ongoing speech and start speaking the hovered text
+            window.speechSynthesis.cancel();
+            window.speechSynthesis.speak(utterance);
+        } else {
+            console.error("Speech Synthesis API is not supported in this browser.");
+        }
+    }
+}
+
+// Initialize available voices
+loadVoices();
+
+// Attach hover event listener to all elements
+document.querySelectorAll('*').forEach(element => {
+    element.addEventListener('mouseenter', speakText);
+});
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
