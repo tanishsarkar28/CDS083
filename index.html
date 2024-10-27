@@ -301,103 +301,7 @@
             font-size: 1.2em;
         }
 
-        .add-to-cart {
-            background-color: #1f1f1f;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .add-to-cart:hover {
-            background-color: #333;
-            transform: translateX(-50%) scale(1.05);
-        }
-        .buy-section {
-            padding: 50px 0;
-            background-color: #f2f2f2;
-        }
-
-        .buy-section h2 {
-            font-size: 2.5em;
-            text-align: center;
-            margin-bottom: 40px;
-            color: #4CAF50;
-        }
-
-        .product-list {
-            display: flex;
-            justify-content: space-around;
-            gap: 20px;
-            flex-wrap: wrap;
-            padding: 0 20px;
-        }
-
-        .product {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            width: 300px;
-            padding: 20px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .product:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .product-image {
-            max-width: 100%;
-            border-radius: 10px;
-            margin-bottom: 10px;
-        }
-
-        .product h3 {
-            font-size: 1.5em;
-            margin: 10px 0;
-        }
-
-        .product .price {
-            color: #ff4d4d; /* Keep the existing red color for the price */
-            font-weight: bold; /* Make the text bold */
-            font-size: 1.2em; /* Increase the font size */
-            background-color: rgba(255, 255, 255, 0.8); /* Add a semi-transparent background for better contrast */
-            padding: 5px; /* Add some padding for aesthetics */
-            border-radius: 5px; /* Round the corners */
-            display: inline-block; /* Make the background fit the text */
-        }
-
-        .add-to-cart {
-            background-color: #1f1f1f;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .add-to-cart:hover {
-            background-color: #333;
-            transform: translateX(-50%) scale(1.05);
-        }
-        #user-profile {
-            position: relative;
-        }
+        
 
         #user-photo {
             width: 40px; /* Size of the user photo */
@@ -439,82 +343,216 @@
         #user-details p {
             margin: 0;
         }
-        /* Modal styles */
+        /* Modal Overlay */
 .modal {
     display: none; /* Hidden by default */
-    position: fixed; 
-    z-index: 1; 
+    position: fixed;
+    z-index: 1000;
     left: 0;
     top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgba(0, 0, 0, 0.5); 
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6); /* Black w/ opacity */
 }
 
+/* Modal Content */
 .modal-content {
-    background-color: #ffffff;
-    margin: 10% auto; 
+    position: relative;
+    background-color: #fff;
+    margin: 10% auto; /* 10% from the top and centered */
     padding: 20px;
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    width: 400px; /* Fixed width */
+    border-radius: 8px;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease; /* Animation effect */
 }
 
-/* Close button */
+/* Animation for Modal */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Close Button */
 .close-button {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #aaa;
+    font-size: 24px;
     font-weight: bold;
-}
-
-.close-button:hover,
-.close-button:focus {
-    color: #000;
-    text-decoration: none;
     cursor: pointer;
 }
 
-/* Cart items */
-.cart-items {
-    max-height: 300px; /* Max height for scrollable area */
-    overflow-y: auto; /* Scroll if too many items */
-    margin-bottom: 15px;
+.close-button:hover {
+    color: #000;
 }
 
-.cart-items p {
+/* Cart Item Style */
+.cart-item {
     display: flex;
     justify-content: space-between;
-    padding: 10px;
-    border-bottom: 1px solid #e0e0e0; /* Divider between items */
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s;
 }
 
-.cart-items p:last-child {
-    border-bottom: none; /* Remove border from last item */
+.cart-item:hover {
+    background-color: #f9f9f9;
 }
 
-/* Total price */
-h3 {
+/* Cart Item Details */
+.cart-item div {
+    flex-grow: 1;
+}
+
+/* Product Name */
+.cart-item p strong {
+    font-size: 18px;
+    color: #333;
+}
+
+/* Cart Controls */
+.cart-controls {
+    display: flex;
+    align-items: center;
+}
+
+.cart-controls button {
+    border: none;
+    background-color: #e0e0e0;
+    color: #333;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.cart-controls button:hover {
+    background-color: #d1d1d1;
+}
+
+.cart-controls span {
+    margin: 0 10px;
+    font-size: 16px;
     font-weight: bold;
 }
 
-/* Checkout button */
+/* Checkout Button */
 .checkout-button {
-    background-color: #28a745; /* Green background */
+    display: inline-block;
+    background-color: #ff9900;
     color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer;
+    padding: 10px 20px;
     font-size: 16px;
-    width: 100%; /* Full width */
-    transition: background-color 0.3s; /* Smooth transition */
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    transition: background-color 0.3s;
 }
 
 .checkout-button:hover {
-    background-color: #218838; /* Darker green on hover */
+    background-color: #e68a00;
 }
+
+/* Total Price */
+#total-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Cart Link in Header */
+.cart {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ff9900;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.cart:hover {
+    color: #cc7a00;
+}
+
+/* Tooltip for Cart Link */
+.cart-tooltip {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    background-color: white;
+    color: #333;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Show Tooltip on Hover */
+.cart:hover .cart-tooltip {
+    display: block;
+}
+
+/* Responsiveness */
+@media (max-width: 600px) {
+    .modal-content {
+        width: 90%;
+        padding: 15px;
+    }
+    .checkout-button {
+        font-size: 14px;
+    }
+}
+/* Tooltip Styling for Cart in Navbar */
+.cart-tooltip {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background-color: #fff;
+    color: #333;
+    width: 200px;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    font-size: 14px;
+}
+
+.cart:hover .cart-tooltip {
+    display: block; /* Show tooltip on hover */
+}
+
+/* Cart Tooltip Item */
+.cart-tooltip-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-tooltip-item:last-child {
+    border-bottom: none;
+}
+
+.cart-tooltip-item p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.cart-tooltip .empty {
+    text-align: center;
+    color: #888;
+}
+
+
 
     </style>
     
@@ -530,7 +568,14 @@ h3 {
                 <li><a href="#">Home</a></li>
                 <li><a href="AboutUs.html">About</a></li>
                 <li><a href="ContactUs.html">Contact</a></li>
-                <li><a href="#" class="cart" id="cart-link">Cart (0)</a></li>
+                <li>
+                    <a href="#" class="cart" id="cart-link">Cart (0)
+                        <div class="cart-tooltip" id="cart-tooltip">
+                            <p>Your cart is empty</p> <!-- Placeholder text for an empty cart -->
+                        </div>
+                    </a>
+                </li>
+
 
                 <li>
                     <div id="user-info">
@@ -765,12 +810,12 @@ document.addEventListener('DOMContentLoaded', function() {
 const cartModal = document.getElementById("cart-modal");
 const cartItemsContainer = document.getElementById("cart-items");
 const totalPriceDisplay = document.getElementById("total-price");
-const cartLink = document.getElementById("cart-link"); // Reference to the cart link
+const cartLink = document.getElementById("cart-link");
 
 // Function to update the cart count display
 function updateCartCount() {
-    const count = cart.length; // Get the number of items in the cart
-    cartLink.textContent = `Cart (${count})`; // Update the cart link text
+    const count = cart.reduce((total, item) => total + item.quantity, 0); // Sum of all quantities
+    cartLink.textContent = `Cart (${count})`;
 }
 
 // Open the cart modal
@@ -789,13 +834,24 @@ function renderCart() {
     cartItemsContainer.innerHTML = ""; // Clear previous items
     let total = 0;
 
-    cart.forEach(item => {
+    cart.forEach((item, index) => {
         const cartItem = document.createElement("div");
+        cartItem.className = "cart-item";
         cartItem.innerHTML = `
-            <p>${item.name} - ₹${item.price} (Qty: ${item.quantity})</p>
+            <div>
+                <p><strong>${item.name}</strong></p>
+                <p>Price: ₹${item.price}</p>
+                <p>Total: ₹${item.price * item.quantity}</p>
+            </div>
+            <div class="cart-controls">
+                <button onclick="changeQuantity(${index}, -1)">-</button>
+                <span>${item.quantity}</span>
+                <button onclick="changeQuantity(${index}, 1)">+</button>
+                <button onclick="removeFromCart(${index})">Remove</button>
+            </div>
         `;
         cartItemsContainer.appendChild(cartItem);
-        total += item.price * item.quantity; // Update total price
+        total += item.price * item.quantity;
     });
 
     totalPriceDisplay.innerText = total; // Display total price
@@ -805,12 +861,29 @@ function renderCart() {
 function addToCart(name, price) {
     const existingItem = cart.find(item => item.name === name);
     if (existingItem) {
-        existingItem.quantity += 1; // Increase quantity if already in cart
+        existingItem.quantity += 1;
     } else {
-        cart.push({ name, price, quantity: 1 }); // Add new item
+        cart.push({ name, price, quantity: 1 });
     }
-    updateCartCount(); // Update the cart count
-    openCart(); // Open cart after adding item
+    updateCartCount();
+    openCart();
+}
+
+// Change item quantity
+function changeQuantity(index, change) {
+    cart[index].quantity += change;
+    if (cart[index].quantity <= 0) {
+        cart.splice(index, 1); // Remove item if quantity is zero
+    }
+    updateCartCount();
+    renderCart();
+}
+
+// Remove item from cart
+function removeFromCart(index) {
+    cart.splice(index, 1); // Remove the item
+    updateCartCount();
+    renderCart();
 }
 
 // Event listeners for add to cart buttons
@@ -833,11 +906,15 @@ window.onclick = function(event) {
     }
 };
 
-// Optionally, implement the checkout function
+// Checkout button functionality
 document.getElementById('checkout-btn').addEventListener('click', () => {
     alert("Proceeding to checkout with total: ₹" + totalPriceDisplay.innerText);
     // Add checkout logic here
 });
+
+
+
+    
 
     </script>
     
