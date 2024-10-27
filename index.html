@@ -560,14 +560,14 @@
 <body>
    
     <header>
-        <div class="logo">Farmer's Market</div>
+        <div class="logo">Farmers</div>
         <nav>
             <ul>
                 <li><a target="_blank" href="signin.html">Sign In</a></li>
                 <li><a target="_blank" href="singup.html">Sign Up</a></li>
                 <li><a href="#">Home</a></li>
-                <li><a href="AboutUs.html">About</a></li>
-                <li><a href="ContactUs.html">Contact</a></li>
+                <li><a href="AboutUs.html">About Us</a></li>
+                <li><a href="ContactUs.html">Contact Us</a></li>
                 <li>
                     <a href="#" class="cart" id="cart-link">Cart (0)
                         <div class="cart-tooltip" id="cart-tooltip">
@@ -594,8 +594,8 @@
     <section class="hero">
         <div class="hero-content">
             <div id="buttons">
-                <a href="#for-farmers" id="sell-btn"><b>Farmer</b></a>
-                <a href="#for-customers" id="shop-btn"><b>Customer</b></a>
+                <a class="read-on-hover" href="#for-farmers" id="sell-btn"><b>Farmer</b></a>
+                <a class="read-on-hover" href="#for-customers" id="shop-btn"><b>Customer</b></a>
             </div>
         </div>
     </section>
@@ -912,8 +912,56 @@ document.getElementById('checkout-btn').addEventListener('click', () => {
     // Add checkout logic here
 });
 
+ // Array to hold available voices
+    let availableVoices = [];
 
+    // Load available voices
+    function loadVoices() {
+        availableVoices = speechSynthesis.getVoices();
+    }
 
+    // Re-load voices when they are loaded (needed for some browsers)
+    speechSynthesis.onvoiceschanged = loadVoices;
+
+    // Function to find the best voice for a given language
+    function getVoiceForLanguage(lang) {
+        return availableVoices.find(voice => voice.lang.startsWith(lang)) || null;
+    }
+
+    // Function to handle speech synthesis on hover
+    function speakText(event) {
+        const text = event.target.innerText.trim();
+        if (text) { // Check if there's text to speak
+            const lang = event.target.getAttribute('lang') || 'en';
+
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(text);
+
+                // Set the language and find the appropriate voice
+                utterance.lang = lang;
+                const voice = getVoiceForLanguage(lang);
+                if (voice) {
+                    utterance.voice = voice;
+                } else {
+                    console.warn(`No voice found for language: ${lang}, using default.`);
+                }
+
+                // Stop any ongoing speech and start speaking the hovered text
+                window.speechSynthesis.cancel();
+                window.speechSynthesis.speak(utterance);
+            } else {
+                console.error("Speech Synthesis API is not supported in this browser.");
+            }
+        }
+    }
+
+    // Initialize available voices
+    loadVoices();
+
+    // Attach hover event listener to all elements
+    document.querySelectorAll('*').forEach(element => {
+        element.addEventListener('mouseenter', speakText);
+    });
     
 
     </script>
