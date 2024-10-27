@@ -8,142 +8,137 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
    
     <style>
-        *{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-body{
-    font-family:Arial, Helvetica, sans-serif;
-    background: linear-gradient(#204a0a, #c4ebbe) ;
-}
-.contact-container{
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-.contact-left{
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    gap: 20px;
-}
-
-.contact-left-title h2{
-    font-weight: 600;
-    color: #041301;
-    font-size: 40px;
-    margin-bottom: 5px;
-}
-
-.contact-left-title hr{
-    border: none;
-    width: 120px;
-    height: 5px;
-    background-color: rgb(243, 193, 99);
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
-.contact-inputs{
-    width: 400px;
-    height: 50px;
-    border: none;
-    outline: none;
-    padding-left: 25px;
-    font-weight: 500;
-    color: #666;
-    border-radius: 50px;
-}
-.contact-left textarea{
-    height: 140px;
-    padding-top: 15px;
-    border-radius: 20px;
-}
-.contact-inputs:focus{
-    border: 2px solid #8a4fff;
-}
-.contact-inputs::placeholder{
-    color: #a9a9a9;
-}
-.contact-left button{
-    display: flex;
-    align-items: center;
-    padding: 15px 30px;
-    font-size: 16px;
-    color: #120e0e;
-    gap: 10px;
-    border: none;
-    border-radius: 50px;
-    background: linear-gradient(270deg,#fffc4f,#7ee27e);
-    cursor: pointer;
-}
-.contact-left button img{
-    height: 15px;
-}
-.contact-right img{
-    width: 500px;
-}
-
-@media(max-width:800px){
-    .contact-inputs{
-        width: 80vw;
-    }
-    .contact-right{
-        display: none;
-    }
-}
-header{
-    background-color: wheat;
-    padding:11px ;
-}
-.home{
-    color: rgb(13, 17, 13);
-    font-size: xx-large;
-    text-decoration:none
-}
-.footer{
-    background: #303036;
-    color: #fff;
-    height: 100px;
-    position: relative;
-}
-
-.footer .footer-bottom{
-    background:rgba(102, 159, 106, 0.455);
-    color: white;
-    height: 50px;
-    width: 100% ;
-    text-align: center;
-    position: absolute;
-    bottom: 0px ;
-    left: 0px;
-    padding-top: 20px;
-}
-
-.social-link-list{
-    display: flex;
-    gap: 25px;
-    justify-content: center;
-}
-
-.social-link-list .social-link{
-    color: rgb(166, 234, 21);
-    font-size: 25px;
-    transition: 0.2s ease;
-}
-
-.social-link-list .social-link:hover{
-    color: white ;
-}
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(#204a0a, #c4ebbe);
+        }
+        .contact-container {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        .contact-left {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            gap: 20px;
+        }
+        .contact-left-title h2 {
+            font-weight: 600;
+            color: #041301;
+            font-size: 40px;
+            margin-bottom: 5px;
+        }
+        .contact-left-title hr {
+            border: none;
+            width: 120px;
+            height: 5px;
+            background-color: rgb(243, 193, 99);
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .contact-inputs {
+            width: 400px;
+            height: 50px;
+            border: none;
+            outline: none;
+            padding-left: 25px;
+            font-weight: 500;
+            color: #666;
+            border-radius: 50px;
+        }
+        .contact-left textarea {
+            height: 140px;
+            padding-top: 15px;
+            border-radius: 20px;
+        }
+        .contact-inputs:focus {
+            border: 2px solid #8a4fff;
+        }
+        .contact-inputs::placeholder {
+            color: #a9a9a9;
+        }
+        .contact-left button {
+            display: flex;
+            align-items: center;
+            padding: 15px 30px;
+            font-size: 16px;
+            color: #120e0e;
+            gap: 10px;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(270deg,#fffc4f,#7ee27e);
+            cursor: pointer;
+        }
+        .contact-left button img {
+            height: 15px;
+        }
+        .contact-right img {
+            width: 500px;
+        }
+        @media(max-width:800px) {
+            .contact-inputs {
+                width: 80vw;
+            }
+            .contact-right {
+                display: none;
+            }
+        }
+        header {
+            background-color: wheat;
+            padding: 11px;
+        }
+        .home {
+            color: rgb(13, 17, 13);
+            font-size: xx-large;
+            text-decoration: none;
+        }
+        .footer {
+            background: #303036;
+            color: #fff;
+            height: 100px;
+            position: relative;
+        }
+        .footer .footer-bottom {
+            background: rgba(102, 159, 106, 0.455);
+            color: white;
+            height: 50px;
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            padding-top: 20px;
+        }
+        .social-link-list {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+        }
+        .social-link-list .social-link {
+            color: rgb(166, 234, 21);
+            font-size: 25px;
+            transition: 0.2s ease;
+        }
+        .social-link-list .social-link:hover {
+            color: white;
+        }
+        #google_translate_element{
+            float: right;
+        }
     </style>
 </head>
 <body>
     <header>
         <nav class="navbar">
             <a href="index.html" class="home">←Home</a>
+            <div id="google_translate_element"></div>
         </nav>
     </header>
     <div class="contact-container">
@@ -152,15 +147,14 @@ header{
                 <h2>Get in Touch</h2>
                 <hr>
             </div>
-            <input type="hidden" name="access_key" value="a3596f12-b61f-486d-b6f7-027ddf48cf18
-            ">
+            <input type="hidden" name="access_key" value="59ae99d9-64ef-4ae1-8a08-030235ffc3c0">
             <input type="text" name="name" placeholder="Your Name" class="contact-inputs" required>
             <input type="email" name="email" placeholder="Your Email" class="contact-inputs" required>
             <textarea name="message" placeholder="Your Message" class="contact-inputs" required></textarea>
             <button type="submit">Submit <img src="assets/arrow_icon.png" alt=""></button>
         </form>
         <div class="contact-right">
-            <img src="Farmers Market Vegetable Stand.jpg" alt="">
+            <img src="Farmers Market Vegetable Stand.jpg" alt="Vegetable Stand">
         </div>
     </div>
     <div class="footer">
@@ -169,10 +163,17 @@ header{
             <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
             <a href="#" class="social-link"><i class="fa-brands fa-twitter"></i></a>
         </div>
-
-        <div class="footer-bottom" >
+        <div class="footer-bottom">
             &copy; Organic.com 
         </div>
     </div>
-  </body>
-  </html>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>
